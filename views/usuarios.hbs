@@ -1,0 +1,28 @@
+<div class="container text-center m-50%">
+    <hr>
+        <h1>Esta es nuestra {{titulo}}</h1>
+    <hr>
+</div>
+
+<div class="mx-6">
+<table class="table table-dark table-hover text-center">
+    <thead>
+        <th>ID Usuario</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>DNI</th>
+    </thead>
+    <tbody>
+        {{#each result}}
+        <tr>
+            <td>{{idUsuario}}</td>
+            <td>{{nombre}}</td>
+            <td>{{apellido}}</td>
+            <td>{{dni}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+</div>
+
+<script src="/js/usuarios.js"></script>
