@@ -10,7 +10,6 @@ const { isGeneratorFunction } = require("util/types")
 const app = express()
 const PORT = process.env.PORT || 8080 //Si le PORT de .env esta ocupado; usa el 8080
 
-/* HEROKU
 // Conexion de la DataBase
 const conexion = mysql.createConnection({
     host: process.env.HOST, //localhost
@@ -27,7 +26,6 @@ conexion.connect((err) => {
         console.log(`Conectado a la Base de Datos ${process.env.DATABASE}`);
     }
 ) 
-HEROKU */
 
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
@@ -51,7 +49,7 @@ app.get(`/formulario`, (req, res, next) => {
         style: `estilos.css`,
     })
 })
-/* HEROKU
+
 app.get(`/usuarios`, (req, res, next) => {
     let sql = 'SELECT * FROM usuarios'
 
@@ -63,7 +61,7 @@ app.get(`/usuarios`, (req, res, next) => {
             })
         })
 })
-HEROKU */
+
 app.get(`/usuarios`, (req, res, next) => {
     
     res.render(`usuarios`, {
@@ -89,11 +87,10 @@ app.post(`/contacto`, (req,res) => {
             validacion
         }) 
     }else{
-        /* HEROKU
         console.log(nombre);
         console.log(apellido);
         console.log(email);
-        HEROKU */
+
         let usuarios = {
             nombre: nombre,
             apellido: apellido,
@@ -135,7 +132,7 @@ app.post(`/contacto`, (req,res) => {
 
 app.post(`/formulario`, (req, res) => {
     const {nombre, apellido, dni} = req.body;
-    //HEROKU console.log(`Nombre: ${nombre}, Apellido: ${apellido}, DNI: ${dni}`);
+    console.log(`Nombre: ${nombre}, Apellido: ${apellido}, DNI: ${dni}`);
 
     if (nombre == '' || apellido == '') {
         let validacion = `Complete todos los datos`
@@ -167,5 +164,5 @@ app.post(`/formulario`, (req, res) => {
 
 
 app.listen(PORT, () => {
-    //HEROKU console.log(`El servidor esta trabajando en el Puerto ${PORT}`);
+    console.log(`El servidor esta trabajando en el Puerto ${PORT}`);
 })
