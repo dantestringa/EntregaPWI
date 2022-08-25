@@ -32,6 +32,10 @@ a {
     margin-left: 6rem !important;
   }
 
+  .w-99 {
+    width: 99%;
+  }
+
 /* Redes Sociales */
 .fa {
     padding: 10px;
